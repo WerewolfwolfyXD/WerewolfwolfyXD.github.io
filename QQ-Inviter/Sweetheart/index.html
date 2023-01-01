@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function randomNum(minNum,maxNum){ switch(arguments.length){ case 1: return parseInt(Math.random()*minNum+1,10); break; case 2: return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10); break; default: return 0; break; } } 
+			var arg=window.location.search;
+			var arrlist=arg.replace("?", "").split("=");
+			if (arrlist=="" || arrlist==['']) {
+				document.writeln('<a>传参数据不为空</a>');
+				window.stop();
+			}
+			if (arrlist[0]=="qq" && arrlist[1]!="qq" && arrlist.length==2) {
+				window.location.replace("https://h5.qzone.qq.com/lover/invitev3?_wv="+randomNum(10000000, 19000000)+"&invitee="+arrlist[1]);
+			} else if (arrlist[0]!="qq" && arrlist[1]=="qq" && arrlist.length==2){
+				var qqc = arrlist[0];
+				var cs = window.location.href.split("?")[0]+"?qq="+qqc;
+				document.writeln('<a href="'+cs+'">URL解析错误，URL应为： '+cs+' !</a>');
+			} else {
+				document.writeln('<a>传参错误或者QQ号不可为空</a>');
+				window.stop();
+			}
+		</script>
+	</body>
+</html>	
