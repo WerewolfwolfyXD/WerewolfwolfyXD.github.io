@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arg=window.location.search;
+			var arrlist=arg.replace("?", "").split("=");
+			if (arrlist=="" || arrlist==['']) {
+				document.writeln('<a>传参数据不为空</a>');
+				window.stop();
+			}
+			if (arrlist[0]=="qq" && arrlist[1]!="qq" && arrlist.length==2) {
+				window.location.replace("https://ti.qq.com/hybrid-h5/intimate/launch?_wvx=2&uin="+arrlist[1]);
+			} else if (arrlist[0]!="qq" && arrlist[1]=="qq" && arrlist.length==2){
+				var qqc = arrlist[0];
+				var cs = window.location.href.split("?")[0]+"?qq="+qqc;
+				document.writeln('<a href="'+cs+'">URL解析错误，URL应为： '+cs+' !</a>');
+			} else {
+				document.writeln('<a>传参错误或者QQ号不可为空</a>');
+				window.stop();
+			}
+		</script>
+	</body>
+</html>	
