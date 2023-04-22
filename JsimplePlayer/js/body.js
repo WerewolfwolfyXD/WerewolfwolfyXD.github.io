@@ -7,8 +7,8 @@ const wyy_api = Array.of(["http://music.163.com/song/media/outer/url?id=", "http
 
 
 
-fetch('https://cloud-music.pl-fe.cn/user/detail?uid=32953014', {
-    mode: "cors",
+fetch('http://music.163.com/api/song/detail/?id=32953014&ids=%5B32953014%5D', {
+    mode: "no-cors",
     method: "GET",
     headers: {
         "Access-Control-Allow-Origin": "*",
