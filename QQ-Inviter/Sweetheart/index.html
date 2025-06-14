@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function randomNum(minNum, maxNum) {
+            switch (arguments.length) {
+                case 1:
+                    return parseInt(Math.random() * minNum + 1, 10);
+                    break;
+                case 2:
+                    return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+                    break;
+                default:
+                    return 0;
+                    break;
+            }
+        }
+
+        var arg = window.location.search;
+        var params = new URLSearchParams(arg);
+
+        var fromUin = params.get('fr');
+        var toUin = params.get('to');
+
+        if (!fromUin || !toUin) {
+            document.writeln('<a>传参错误或者QQ号不可为空</a>');
+            window.stop();
+        } else {
+            var newUrl = "https://ti.qq.com/hybrid-h5/intimate/response_v2?touin=" + toUin + "&fromuin=" + fromUin + "&type=lover&source=3&_wv=" + randomNum(10000000, 19000000) + "&_nav_txtclr=000000&_wvSb=0";
+            window.location.replace(newUrl);
+        }
+    </script>
+</body>
+</html>
